@@ -42,6 +42,11 @@
           <%# </ul>
         </li> %>
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item"><%= link_to 'About', about_index_path, class: "nav-link" %></li>
+      </ul>
+
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a
@@ -83,6 +88,6 @@ const gnr = () => {
   };
   const title = document.querySelector("header.hero");
   title.addEventListener("dblclick", gnr);
-  
+
 })()
   </script>
