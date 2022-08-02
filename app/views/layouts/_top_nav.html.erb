@@ -49,6 +49,7 @@
 
       <ul class="navbar-nav">
         <% if current_user %>
+          <li class="nav-item nav-link">Signed in as <%= current_user.first_name %> <%= current_user.last_name %></li>
           <li class="nav-item"><%= link_to 'Logout', logout_path, class: "nav-link" %></li>
         <% else %>
           <li class="nav-item"><%= link_to 'Register', signup_path, class: "nav-link" %></li>
