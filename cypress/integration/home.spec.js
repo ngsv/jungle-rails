@@ -1,4 +1,4 @@
-describe('Home page', () => {
+describe('Home Page', () => {
   it('Loads the home page', () => {
     cy.visit('/');
     cy.get(".products-index").should("be.visible");
