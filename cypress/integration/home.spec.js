@@ -1,7 +1,8 @@
 describe('Home Page', () => {
-  it('Loads the home page', () => {
-    cy.visit('/');
+  beforeEach(() => {
+    cy.visit("/");
     cy.get(".products-index").should("be.visible");
+    cy.get(".products article").should("have.length", 2);
   });
 
   it("There is products on the page", () => {
