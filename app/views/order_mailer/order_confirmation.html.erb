@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order!</h1>
+    <h2>
+      Your order number is #<%= @order.id %>. An email will be sent to you when your order has shipped.
+    </h2>
+    <p>
+      <div class="panel panel-default items">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th colspan="2">Product</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order.line_items.each do |item| %>
+              <%= render 'line_item', product: Product.find_by(id: item[:product_id]), quantity: item[:quantity] %>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4">
+                TOTAL:
+              </th>
+              <th>
+                <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </p>
+    <br>
+    <h2>Have a great day!</h2>
+  </body>
+</html>
